@@ -40,10 +40,11 @@ SHARED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
 
     'accounts',
+    'cms',
+
 )
 
 TENANT_APPS = (
@@ -53,11 +54,11 @@ TENANT_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
 
     'accounts',
     'houses',
+    'education',
 )
 
 INSTALLED_APPS = list(SHARED_APPS) + [app for app in TENANT_APPS if app not in SHARED_APPS]
