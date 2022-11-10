@@ -6,7 +6,7 @@ from customers.utils import get_current_schema
 
 
 @admin.register(Category)
-class CategoryAdmin(TenantAdminMixin, admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
     # def has_delete_permission(self, request, obj=None):
