@@ -57,7 +57,6 @@ TENANT_APPS = (
     'rest_framework',
 
     'accounts',
-    'houses',
     'education',
 )
 
@@ -85,6 +84,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'customers.middleware.AdminValidationErrorMiddleware'
 ]
 
 ROOT_URLCONF = 'tenantsstd.urls'

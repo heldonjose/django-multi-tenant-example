@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-import datetime
 from django.core.management.base import BaseCommand
-from django.utils import timezone
-from datetime import datetime
+from django_tenants.utils import schema_context
+
+from cms.models import Category
 from customers.models import Client, Domain
 
 
@@ -34,10 +34,13 @@ def create_schemas():
     domain.save()
 
 
+
 class Command(BaseCommand):
     help = 'Update performance cycles status'
 
     def handle(self, **options):
-        pass
-        # create_schemas()
+        Category.objects.all().delete()
+
+        with schema_context('tenant1'):
+            Category.objects.all().delete()
 
