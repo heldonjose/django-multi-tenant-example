@@ -10,6 +10,19 @@ from customers.utils import get_current_schema
 
 class SoftDeleteModelQuerySet(QuerySet):
 
+    def create(self, **kwargs):
+        """
+        Create a new object with the given kwargs, saving it to the database
+        and returning the created object.
+        """
+        obj = self.model(**kwargs)
+        self._for_write = True
+        obj.save(force_insert=True, using=self.db)
+        return obj
+
+    async def acreate(self, **kwargs):
+        return await sync_to_async(self.create)(**kwargs)
+
     def delete(self):
         print('connections', connections)
         print('connections', get_tenant_database_alias)
@@ -42,7 +55,7 @@ class CategoryManager(models.Manager):
 # Create your models here.
 class Category(models.Model):
     name = models.CharField('Nome', max_length=255, blank=True, null=True)
-    # objects = CategoryManager()
+    objects = CategoryManager()
 
     def __str__(self):
         return self.name

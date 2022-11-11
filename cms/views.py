@@ -33,9 +33,10 @@ class CategoryList(generics.ListAPIView):
             with schema_context('public'):
                 qs_public = super().get_queryset()
                 print('qs_public', qs_public)
-                queryset = list(chain(queryset, qs_public))
+                # queryset = list(chain(queryset, qs_public))
+                lista.extend(list(qs_public))
         print('queryset', queryset)
-        return queryset
+        return lista
 
     #
     # def get_queryset(self):
