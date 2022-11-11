@@ -53,10 +53,10 @@ class Command(BaseCommand):
 
 
 
-# 1 - Fazer o rebase (duas sp1 ) para a main
-# 2 - Fazer o rebase para o django40
-# 3 - Fazer a limpeza dos migrates para criação de uma base limpa
-# 4 - Colocar multitanent - CM - Public e Portal private
+# 1 - Fazer o rebase (duas sp1 ) para a main.
+# 2 - Fazer o rebase para o django40;
+# 3 - Fazer a limpeza dos migrates para criação de uma base limpa;
+# 4 - Colocar multitanent - CM - Public e Portal private;
 # 5 - Trazer a parte de Autenticação (doc) - URL e View  - JWT para o app core (Criar se não existir)
 # 6 - Validações para os tenants não alterar (Criar, deletar ou editar) os dados dos esquemas public (Perguntar a Alessandro)
 
